@@ -1,17 +1,81 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { StrictMode, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// CSS
+import "./styles.css";
+
+// Values.js
+import Values from "values.js";
+
+// ColorBlock
+import { ColorBlock } from "./ColorBlock";
+
+const MainApp = () => {
+  return <ColorGenerator></ColorGenerator>;
+};
+
+const ColorGenerator = () => {
+  const [color, setColor] = useState("");
+  const [colors, setColors] = useState(new Values("#28a9e0").all(10));
+  const [error, setError] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      const valueColor = new Values(color);
+      const newColors = valueColor.all(10);
+      setColors(newColors);
+      console.log(newColors);
+    } catch (error) {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+    }
+  };
+
+  return (
+    <>
+      <div className='title-container'>
+        <h1>Color Generator</h1>
+        <form
+          action='#'
+          className='form-container'
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          <input
+            type='text'
+            id='input'
+            placeholder='#28a9e0'
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
+            style={{ borderColor: error ? "red" : null }}
+          />
+          <button type='submit'>SUBMIT</button>
+        </form>
+      </div>
+      <div className='colors-container'>
+        {colors.map((color, index) => {
+          const { weight, hex, type } = color;
+          return (
+            <ColorBlock
+              procentage={weight}
+              hexValue={hex}
+              key={index}
+              type={type}
+            ></ColorBlock>
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+const root = createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <StrictMode>
+    <MainApp></MainApp>
+  </StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
