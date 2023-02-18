@@ -16,23 +16,28 @@ body {
   align-items: center;
   margin: 3rem;
 }
+
 .title-container > h1 {
   margin-right: 2rem;
   font-weight: 800;
   letter-spacing: 0.2rem;
 }
+
 .form-container {
   display: flex;
   flex-direction: row;
 }
+
 #input {
   font-size: 1.5rem;
-  border-color: white;
   padding-left: 0.5rem;
+  border: 3px solid white;
 }
+
 #input:focus {
   outline: none;
 }
+
 .form-container > button {
   border: none;
   padding: 0.3rem;
@@ -42,11 +47,13 @@ body {
   color: white;
   text-shadow: 1px 1px 3px black;
 }
+
 /* Colors */
 .colors-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
 .colorblock {
   display: flex;
   flex-direction: column;
@@ -58,9 +65,11 @@ body {
   .title-container > h1 {
     font-size: 1.5rem;
   }
+
   #input {
     font-size: 0.7rem;
   }
+
   .form-container > button {
     font-size: 0.7rem;
   }
