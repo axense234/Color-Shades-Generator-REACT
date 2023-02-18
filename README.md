@@ -1,4 +1,4 @@
-# **Birthday Reminder**
+# **Color Shades Generator**
 
 A simple React Project that focuses on the basics of react in combination with a specific library.
 
