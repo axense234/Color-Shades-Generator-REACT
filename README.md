@@ -31,6 +31,8 @@ npm start
 
 ## **Version History**
 
+- 0.3
+  - Analyzed the code to gather to-do tasks but got none. Also fixed react key bug.
 - 0.2
   - Setup eslint for react-jsx and did some small changes
   - See [commit change](https://github.com/axense234/Color-Shades-Generator-REACT/commits/master) or See [release history](https://github.com/axense234/Color-Shades-Generator-REACT/releases)

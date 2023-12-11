@@ -29,7 +29,6 @@ const ColorGenerator = () => {
       <div className='title-container'>
         <h1>Color Generator</h1>
         <form
-          action='#'
           className='form-container'
           onSubmit={(e) => {
             handleSubmit(e);
@@ -47,13 +46,14 @@ const ColorGenerator = () => {
         </form>
       </div>
       <div className='colors-container'>
-        {colors.map((specificColor) => {
+        {colors.map((specificColor, index) => {
           const { weight, hex, type } = specificColor;
           return (
             <ColorBlock
               procentage={weight}
               hexValue={hex}
-              key={specificColor.hex}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
               type={type}
             />
           );

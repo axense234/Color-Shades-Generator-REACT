@@ -41,11 +41,17 @@ body {
 .form-container > button {
   border: none;
   padding: 0.3rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   letter-spacing: 0.2rem;
   background-color: #28a9e0;
   color: white;
   text-shadow: 1px 1px 3px black;
+
+  transition: font-size 0.3s ;
+}
+
+.form-container > button:hover{
+  font-size: 1rem;
 }
 
 /* Colors */
