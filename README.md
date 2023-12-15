@@ -20,9 +20,20 @@ git clone https://github.com/axense234/Color-Shades-Generator-REACT.git
 
 ### Executing program
 
+- **Using NPM**
+
 ```
 npm install
 npm start
+```
+
+- **Using Docker**
+
+```
+docker build -t csg-react:0.3.0 .
+docker stop csg-react-app
+docker rm csg-react-app
+docker run -d -p 3000:3000 --name csg-react-app csg-react:0.3.0
 ```
 
 ## **Authors**
